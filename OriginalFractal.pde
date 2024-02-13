@@ -1,13 +1,15 @@
 public void setup(){
-  size(500,500);
+  size(900,900);
 
 }
 public void draw(){
   //fill((float)Math.random()*255,0,0);
   noLoop();
-   myFractal(width/2,height/2,100);
+   myFractal(width/2,height/1.7,100);
+     myFractal2(width/2,-height/4,500);
+
 }
-public void myFractal(int x, int y, float siz){
+public void myFractal(float x, float y, float siz){
   if(siz<10){
      fill((float)Math.random()*70+180,(float)Math.random()*55,0);
 
@@ -18,5 +20,17 @@ public void myFractal(int x, int y, float siz){
     ellipse((float)(x+Math.sin(i)*siz),(float)(y+Math.cos(i)*siz),siz*1.2,siz*1.2);
 
   myFractal(x,y,(float)siz/1.5);
+  }
+}
+public void myFractal2(int x, float y, float siz){
+  textAlign(CENTER);
+
+  if (siz<1){
+  textSize(siz);
+  text("GIVE ME EXTRA CREDIT TODAY",x,y);
+} else {
+  textSize(siz);
+  text("GIVE ME EXTRA CREDIT TODAY",x,y);
+  myFractal2( x,  (float)(y+siz/2.2),  siz/1.7);
   }
 }
